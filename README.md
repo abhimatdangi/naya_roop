@@ -11,7 +11,6 @@ The current version focuses on accurate face-shape detection and clear hairstyle
 📸 Face detection using on-device ML
 🧠 AI-based face shape classification
 ✂️ Hairstyle recommendations based on predicted face shape
-🔀 Handles ambiguity using top-2 face-shape predictions
 
 ⭐ Save favorite hairstyles
 
