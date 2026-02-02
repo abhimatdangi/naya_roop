@@ -1,5 +1,4 @@
-# naya_roop
-🌟 NayaRoop
+# NayaRoop
 
 NayaRoop is an AI-powered application that helps users identify their face shape and discover hairstyles that suit them best.
 The app combines on-device machine learning with a clean user experience to deliver practical hairstyle recommendations based on facial structure.
