@@ -14,6 +14,7 @@ import 'firebase_options.dart';
 import 'services/face_analysis_service.dart';
 
 // Favorites Service for managing user's favorite hairstyles
+// The service is below
 class FavoritesService {
   static final FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
