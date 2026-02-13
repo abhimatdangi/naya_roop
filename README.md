@@ -6,7 +6,7 @@ The app combines on-device machine learning with a clean user experience to deli
 The current version focuses on accurate face-shape detection and clear hairstyle suggestions, without live previews or virtual try-on features.
 
 
-🚀 Features
+🚀 Features: lets talk about feature
 
 📸 Face detection using on-device ML
 🧠 AI-based face shape classification
