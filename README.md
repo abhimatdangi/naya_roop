@@ -1,123 +1,131 @@
-NayaRoop
+# NayaRoop
 
-NayaRoop is a mobile application built with Flutter that uses on-device artificial intelligence to identify a user's face shape and recommend hairstyles that best match their facial structure.
+**NayaRoop** is a mobile application built with **Flutter** that uses **on-device Artificial Intelligence** to identify a user's face shape and recommend hairstyles that best match their facial structure.
 
-The application combines machine learning, face detection, and a clean user interface to deliver practical hairstyle suggestions. All AI inference runs locally on the device, ensuring fast performance and strong user privacy.
+The application combines **machine learning**, **face detection**, and a **clean mobile interface** to deliver practical hairstyle suggestions.
 
-Overview
+All AI inference runs **locally on the device**, ensuring **fast performance and strong user privacy**.
 
-NayaRoop analyzes a user's face from a photo and predicts their most likely face shape using a deep learning model. Based on this prediction, the application suggests hairstyles that typically suit that face structure.
+---
 
-Rather than forcing a single label, the system considers the top two predicted face shapes, allowing the app to provide more realistic and flexible hairstyle recommendations.
+# Overview
 
-Key Features
+NayaRoop analyzes a user’s face from a photo and predicts their most likely **face shape** using a **deep learning model**.
 
-Face Detection
-Detects and crops the user's face using Google ML Kit before running the machine learning model.
+Based on this prediction, the application recommends **hairstyles that typically suit that face structure**.
 
-AI-Based Face Shape Classification
-A deep learning model predicts probabilities for different face shapes.
+Instead of forcing a single label, the system considers the **top two predicted face shapes**, allowing the app to generate **more realistic and flexible hairstyle recommendations**.
 
-Hairstyle Recommendations
-The app suggests hairstyles based on the predicted face shape.
+---
 
-Top-2 Prediction System
-Handles ambiguity by considering the two most probable face shapes.
+# Key Features
 
-Favorites System
-Users can save hairstyles they like to their account.
+### Face Detection
+Detects and crops the user’s face using **Google ML Kit** before running the machine learning model.
 
-Authentication
-Secure Google Sign-In using Firebase Authentication.
+### AI-Based Face Shape Classification
+A deep learning model predicts **probabilities for different face shapes**.
 
-On-Device Inference
-All machine learning predictions run locally on the device.
+### Hairstyle Recommendations
+The app suggests hairstyles based on the **predicted face shape**.
 
-How the System Works
+### Top-2 Prediction System
+Handles ambiguity by considering the **two most probable face shapes**.
 
-The user uploads or captures a photo.
+### Favorites System
+Users can **save hairstyles** they like to their account.
 
-The application detects and crops the face using Google ML Kit.
+### Authentication
+Secure **Google Sign-In using Firebase Authentication**.
 
-The cropped image is passed to a TensorFlow Lite model.
+### On-Device Inference
+All machine learning predictions run **locally on the device**.
 
-The model predicts probabilities for multiple face shapes.
+---
 
-The two highest predictions are selected.
+# How the System Works
 
-Hairstyle recommendations are generated based on those predictions.
+1. The user uploads or captures a photo.
+2. The application detects and crops the face using **Google ML Kit**.
+3. The cropped image is passed to a **TensorFlow Lite model**.
+4. The model predicts probabilities for multiple face shapes.
+5. The **two highest predictions** are selected.
+6. Hairstyle recommendations are generated based on those predictions.
+7. Users can save recommended hairstyles to their **favorites**.
 
-Users can save recommended hairstyles to their favorites.
+---
 
-Face Shape Categories
+# Face Shape Categories
 
-The model classifies faces into the following five categories:
+The model classifies faces into the following **five categories**:
 
-Heart
+- Heart  
+- Oblong  
+- Oval  
+- Round  
+- Square  
 
-Oblong
+Because face shape classification can sometimes be **subjective**, the system uses **probability-based predictions** instead of forcing a single definitive label.
 
-Oval
+---
 
-Round
+# Technology Stack
 
-Square
+## Frontend
+- Flutter  
+- Dart  
 
-Because face shape classification can sometimes be subjective, the system uses probability-based predictions rather than forcing a single definitive label.
+## Machine Learning
+- TensorFlow / Keras  
+- EfficientNetB0 *(ImageNet-pretrained using transfer learning)*  
+- TensorFlow Lite *(for on-device inference)*  
 
-Technology Stack
-Frontend
+---
 
-Flutter
+# Model Specifications
 
-Dart
+| Property | Value |
+|---------|------|
+| Input Size | 260 × 260 RGB |
+| Classification Type | 5-class face shape prediction |
 
-Machine Learning
+---
 
-TensorFlow / Keras
+# Face Detection
 
-EfficientNetB0 (ImageNet-pretrained using transfer learning)
+Face detection is performed using **Google ML Kit**, which identifies and crops the **face region** before it is passed to the machine learning model.
 
-TensorFlow Lite for on-device inference
+---
 
-Model Specifications
+# Backend Services
 
-Input size: 260 × 260 RGB
+NayaRoop uses **Firebase** as a backend service provider.
 
-Classification type: 5-class face shape prediction
+- Firebase Authentication *(Google Sign-In)*  
+- Cloud Firestore *(user data and saved hairstyles)*  
+- Firebase Security Rules  
 
-Face Detection
+The backend stores **only user-related metadata**.  
+No images are uploaded or stored.
 
-Face detection is performed using Google ML Kit, which identifies and crops the face region before it is passed to the machine learning model.
+---
 
-Backend Services
+# Model Performance
 
-NayaRoop uses Firebase as a backend service provider.
+| Metric | Result |
+|------|------|
+| Test Accuracy | ~56% |
+| Dataset | Balanced dataset across five classes |
+| Evaluation Method | Held-out test dataset |
 
-Firebase Authentication (Google Sign-In)
+Face shape labeling is inherently **subjective**, so predictions are presented **probabilistically** and combined with **rule-based hairstyle recommendations**.
 
-Cloud Firestore (user data and saved hairstyles)
+---
 
-Firebase Security Rules
+# Privacy
 
-The backend only stores user-related metadata. No images are uploaded or stored.
+User privacy is a **core design consideration**.
 
-Model Performance
-
-Test Accuracy: ~56%
-
-Dataset: Balanced dataset across five classes
-
-Evaluation Method: Held-out test dataset
-
-Face shape labeling is inherently subjective, so predictions are presented probabilistically and combined with rule-based hairstyle recommendations.
-
-Privacy
-
-User privacy is a core design consideration.
-
-All image processing happens locally on the device
-
-No photos are uploaded to external servers
-
-Firebase stores only user account data and saved favorites
+- All image processing happens **locally on the device**
+- **No photos are uploaded** to external servers
+- Firebase stores only **user account data and saved favorites**
